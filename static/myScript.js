@@ -15,6 +15,8 @@ function newMove() {
     let pos = move(x,y);
     el.style.left = pos[1] + "px";
     el.style.top = pos[0] + "px";
+    let size = Math.floor(Math.random() * 30) + 10;
+    document.getElementById("Shooter").setAttribute("r", size.toString());
 }
 function hit() {
     hits = hits+1;
@@ -29,4 +31,5 @@ function missy() {
     miss = miss + 1;
     let m = document.getElementById("missing");
     m.innerHTML = "Times missed: "+miss.toString() + " " + "Accuracy: " + accuracy;
+    newMove()
 }
