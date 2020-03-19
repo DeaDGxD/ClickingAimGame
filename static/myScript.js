@@ -3,6 +3,7 @@ let x = doc.offsetHeight - 100;
 let y = doc.offsetWidth - 100;
 let hits = 0;
 let miss = 0;
+let begin;
 document.getElementById("Shooter").addEventListener("click", hit);
 function move(x,y) {
     let height = Math.floor(Math.random() * x);
@@ -24,7 +25,9 @@ function hit() {
     h.innerHTML = "Times hit:"+hits.toString();
     let accuracy = (hits / (hits + miss) * 100).toString() + "%";
     let m = document.getElementById("missing");
-    m.innerHTML = "Times missed: "+miss.toString() + " " + "Accuracy: " + accuracy;
+    let end = Date.now() - begin;
+    m.innerHTML = "Times missed: "+miss.toString() + " " + "Accuracy: " + accuracy + " " + "Time:" + end + "ms";
+    begin = Date.now();
 }
 function missy() {
     let accuracy = (hits / (hits + miss) * 100).toString() + "%";
