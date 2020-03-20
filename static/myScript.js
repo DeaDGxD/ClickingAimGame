@@ -23,16 +23,16 @@ function hit() {
     hits = hits+1;
     let h = document.getElementById("hits");
     h.innerHTML = "Times hit:"+hits.toString();
-    let accuracy = (hits / (hits + miss) * 100).toString() + "%";
     let m = document.getElementById("missing");
     let end = Date.now() - begin;
+    let accuracy = Math.floor((hits / (hits + miss) * 100)).toString() + "%";
     m.innerHTML = "Times missed: "+miss.toString() + " " + "Accuracy: " + accuracy + " " + "Time:" + end + "ms";
     begin = Date.now();
 }
 function missy() {
-    let accuracy = (hits / (hits + miss) * 100).toString() + "%";
     miss = miss + 1;
     let m = document.getElementById("missing");
+    let accuracy = Math.floor((hits / (hits + miss) * 100)).toString() + "%";
     m.innerHTML = "Times missed: "+miss.toString() + " " + "Accuracy: " + accuracy;
     newMove()
 }
